@@ -1,0 +1,12 @@
+<h3 class="title">Mis Listas</h3>
+<% if @lists.present? %>
+  <% for list in @lists %>
+    <p> <%= link_to list.title, "#{request.url}#{list.url}" %>  <p>
+  <% end %>
+  
+  <div class="more">
+    <a href="#" title="Ver Mas"> Ver Mas <i class="fa fa-angle-double-right"></i> </a>
+  </div>
+<% else %>
+  <p>No agregaste ninguna lista</p>
+<% end %>

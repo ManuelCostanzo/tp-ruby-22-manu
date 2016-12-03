@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-header">Datos de la lista</div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <%= @list.created_at.strftime( "Creado el %m/%d/%Y a las %I:%M:%S%p") %>
+    </li>
+    <li class="list-group-item" id="list-update">
+      <%= render partial: 'updated_date' %>
+    </li>
+    <li class="list-group-item">Cantidad de tareas:
+      <%= @list.tasks.count %>
+    </li>
+  </ul>
+  <div class="card-footer"> <a role="button" class="btn btn-primary" data-link data-clipboard-text="<%= request.url %>">Copiar Link</a> </div>
+</div>

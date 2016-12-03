@@ -1,0 +1,9 @@
+<% if @task.errors.present? %>
+	$("#task-msg").removeAttr('class').addClass("alert alert-danger");
+	$("#task-msg").html('<%= error_html_safe(@task.errors) %>');
+<% else %>
+$("#task-msg").removeAttr('class').addClass("alert alert-success");
+	$("#pending").html("<%= escape_pending_tasks %>");
+	$("#task-msg").html('Tarea agregada como pendiente');
+	$("#list-update").html("<%= escape_updated_day %>");
+<% end %>

@@ -1,0 +1,14 @@
+<%= bootstrap_form_for :task, remote: true do |f| %>
+	<%= f.select :type, Task.types, include_blank: 'Agregar Tarea', hide_label: true %>
+	<div id="task-msg"></div>
+	<div id="simple">
+		<%= f.text_area :description, size: '10x3', placeholder: 'Agregar Descripcion', hide_label: true %>
+		<%= f.select :priority_id, Priority.all.map{|p| [p.name, p.id]}, include_blank: 'Elegir Prioridad', hide_label: true %>
+	</div>
+
+	<div id="temporary">
+		<%= f.datetime_select :beginning, label: 'Inicio' %>
+		<%= f.datetime_select :ending, label: 'Fin' %>
+	</div>
+	<%= f.submit 'enviar', id: 'submit-task', style: 'display:none' %>
+<% end %>

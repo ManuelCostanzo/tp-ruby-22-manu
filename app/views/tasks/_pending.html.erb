@@ -1,0 +1,13 @@
+<div class="well">
+<h4 class="text-primary"><span class="label label-primary pull-right"><%= @list.tasks.pending.count %></span> Pendientes </h4>
+</div>
+<% @list.tasks.pending.each do |t|%>
+	<div id="task-<%= t.id %>" class="task">
+		<%=  t.description %>  <br>
+		<div class="task-info" style="display:none">
+			prioridad: <%= t.priority.name %>  <br>
+			tipo: <%= t.type%> 
+		</div>
+	</div>
+		<br>
+<% end %>

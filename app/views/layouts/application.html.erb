@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Wolflist</title>
-    <%= csrf_meta_tags %>
+<head>
+	<title>WolfList</title>
+	<%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+
+	<%= render 'navigation' %>
+
+	<div <%= class_for_index %>>
+		<%= yield %>
+	</div>
+
+	<div class="container">
+		<footer class="container-fluid">
+			<br>
+			<div class="row text-center">
+				Copyright © 2016 Listas Lobo. All rights reserved.
+				<a href="#" target="_blank">Terminos y condiciones</a> - <a href="#" target="_blank">Politica de Privacidad</a> - 
+				<a href="#" target="_blank">Contacto</a> - <a href="#">Manuel</a>
+			</div>  
+		</footer> 
+	</div>   	
+</body>
 </html>
