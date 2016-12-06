@@ -13,6 +13,8 @@
 //= require jquery
 //= require tether
 //= require bootstrap
+//= require editable/bootstrap-editable
+//= require editable/rails
 //= require clipboard
 //= require jquery_ujs
 //= require turbolinks

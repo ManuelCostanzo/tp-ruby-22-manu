@@ -60,3 +60,5 @@ gem 'clipboard-rails'
 gem 'validates_timeliness', '~> 4.0'
 
 gem "strip_attributes"
+
+gem 'x-editable-rails'

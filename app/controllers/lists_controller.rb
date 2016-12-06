@@ -1,33 +1,30 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:index]
+  before_action :set_user_lists, :set_list, only: [:index]
   before_action :search_list, only: [:show, :update]
 
   def index
-    @lists = List.find(session[:list]).last(5) if session[:list].present? and List.count() > 0
+    set_user_lists
   end
 
   def create
     @list = List.new(allowed_params)
     @list.url = @list.title.downcase.parameterize
 
-    respond_to do |format|
       if @list.save
         add_list_to_user
-        format.html { redirect_to @list, notice: 'List was successfully created.' }
-        format.json { render :show, status: :created, location: @list }
+        redirect_to @list
       else
-        format.html { render :index }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
+        set_user_lists
+        render action: :index
     end
   end
 
   def update
-    @list.update_attributes allowed_params
 
-    respond_to do |format|
-        format.html { redirect_to @list}
-        format.js {}
+    if @list.update_attributes allowed_params
+      200
+    else
+      render json: @list.errors.full_messages, status: :unprocessable_entity
     end
   end
 
@@ -40,9 +37,13 @@ class ListsController < ApplicationController
       @list = List.new
     end
 
+    def set_user_lists
+      @lists = List.find(session[:list]).last(5).reverse if session[:list].present? and List.count() > 0
+    end
+
     def search_list
-      @list = List.find_by(url: params[:url])
-      redirect_to "/" if @list.nil?
+      @list = List.find_by(url: params[:id])
+      redirect_to action: :index if @list.nil?
     end
 
     def allowed_params

@@ -10,7 +10,19 @@
 }
 
 .help-block {
-  display: none
+  display: none;
+}
+
+.editable-error-block {
+  color: red
+}
+
+.editable-click, a.editable-click, a.editable-click:hover {
+  border-bottom: none;
+}
+
+.editable-buttons {
+  margin-top: 5px;
 }
 
 .edit-title {

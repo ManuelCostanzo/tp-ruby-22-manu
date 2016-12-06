@@ -2,10 +2,9 @@ Rails.application.routes.draw do
 	
 	root to: "lists#index"
 	
-	post '/' => 'lists#create', as: "lists"
-	patch '/:url' => 'lists#update', as: 'list'
-	get '/:url' => 'lists#show'
-	post '/:url' => 'tasks#create'
+	resources :lists
+
+	get '/:id' => 'lists#show'
 
   resources :simple, controller: 'tasks', type: 'Simple'
   resources :longs, controller: 'tasks', type: 'Long'
