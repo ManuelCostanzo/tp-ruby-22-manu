@@ -5,11 +5,14 @@
       <%= @list.created_at.strftime( "Creado el %m/%d/%Y a las %I:%M:%S%p") %>
     </li>
     <li class="list-group-item" id="list-update">
-      <%= render partial: 'updated_date' %>
+      <%= @list.updated_at.strftime("Actualizado el %m/%d/%Y a las %I:%M:%S%p") %>
     </li>
     <li class="list-group-item">Cantidad de tareas:
-      <%= @list.tasks.count %>
+      <span class="tasks-count"> <%= @list.tasks.count %> </span>
     </li>
   </ul>
-  <div class="card-footer"> <a role="button" class="btn btn-primary" data-link data-clipboard-text="<%= request.url %>">Copiar Link</a> </div>
+  <div class="card-footer"> 
+    <%= link_to 'Destroy', @list,  method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+    <a role="button" class="btn btn-primary" data-link data-clipboard-text="<%= request.url %>">Copiar Link</a>
+  </div>
 </div>

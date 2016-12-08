@@ -1,0 +1,46 @@
+<div class="col-md-3">
+    <div id="pending">
+      <%= render partial: 'tasks/pending'%>   
+    </div>
+</div>
+<div class="col-md-3">
+  <div class="well">
+    <h4 class="text-warning"><span class="label label-success pull-right"><%= @list.tasks.in_progress.count %></span> En curso </h4>
+  </div>
+  <% if @list.tasks.in_progress.count > 0 %>
+    <% @list.tasks.in_progress.each do |t|%>
+        <%= render partial: 'tasks/in_progress', locals: {t: t} %>
+    <% end %>  
+  <% else %>  
+    No hay ninguna tarea en curso
+  <% end %>
+</div>
+<div class="col-md-3">
+  <div class="well">
+    <h4 class="text-success"><span class="label label-success pull-right"><%= @list.tasks.completed.count %></span> Hechas </h4>
+  </div>
+
+  <% if @list.tasks.completed.count > 0 %>
+    <% @list.tasks.completed.each do |t|%>
+        <%= render partial: 'tasks/finished', locals: {t: t} %>
+        </div>
+      </div>
+    <% end %>  
+  <% else %>  
+    No hay ninguna tarea finalizada
+  <% end%>
+</div>
+<div class="col-md-3">
+  <div class="well">
+    <h4 class="text-danger"><span class="label label-danger pull-right"><%= @list.tasks.expired.count %></span> Expiradas </h4>
+  </div>
+  <% if @list.tasks.expired.count > 0 %>
+    <% @list.tasks.expired.each do |t|%>
+        <%= render partial: 'tasks/finished', locals: {t: t} %>
+        </div>
+      </div>
+    <% end %>  
+  <% else %>  
+    No hay ninguna tarea expirada
+  <% end%>
+</div>

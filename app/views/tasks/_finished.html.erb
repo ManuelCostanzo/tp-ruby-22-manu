@@ -1,0 +1,31 @@
+<div id="task-<%= t.id %>" class="task">
+	
+	<div class="open-task">
+		<%= truncate(t.description, :length => 100) %>
+		<br>
+		<button class="btn btn-primary btn-sm">Ver</button>
+	</div>
+
+	<div class="task-info" style="display:none">
+		<p> <%= t.description %> </p>
+		<div class="info">
+			<span class="h5">Prioridad:</span><strong><%= t.priority.name %></strong>
+		</div>
+
+		<% if t.type == 'Temporary' %>
+			<div class="info">
+				<span class="h5">Inicio:</span><strong><%= t.beginning.strftime("%d/%m/%Y %I:%M") %></strong>
+			</div>			
+			<div class="info">
+				<span class="h5">Fin:</span><strong><%= t.ending.strftime("%d/%m/%Y %I:%M") %></strong>
+			</div>			
+		<% elsif t.type == 'Long' %>
+			<div class="info">
+				<span class="h5">Porcentaje:</span><strong><%= t.percentage %></strong>
+			</div>			
+		<% end %>
+
+		<div class="info">
+			<span class="h5">Tipo:</span> <strong> <%= t.type %>  </strong>
+		</div>
+		<%= button_to 'Destroy', task_path(t), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure?' } %>

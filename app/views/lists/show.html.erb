@@ -1,6 +1,10 @@
 <div class="row">
   <div class="col-md-12">
-    <%= render 'update_list' %>
+    <div class="edit-title jumbotron jumbotron-fluid">
+      <div class="container">
+        <%= editable @list, :title, url: list_path(@list), value: @list.title, tag: 'h1', class: 'edit_list' %>
+      </div>
+    </div>
   </div>
 
 </div>
@@ -22,8 +26,8 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="row">
-      <div class="box-list">
-        <%= render partial: 'tasks/tasks' %>
+      <div class="box-list tasks">
+        <%= render partial: 'tasks/show' %>
       </div>
     </div>
   </div>

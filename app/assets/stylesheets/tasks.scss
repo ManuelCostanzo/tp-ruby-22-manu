@@ -1,0 +1,36 @@
+.task {
+  border-bottom-style: dashed;
+  padding-top: 13px;
+}
+
+#submit-task {
+    margin: 0% 39%;
+}
+
+.task-info {
+    padding-bottom: 13px;
+}
+
+.task .editable-container.editable-inline {
+  display: inline; 
+}
+
+.task .editable-input {
+  display: inline; 
+}
+
+.task .editable-buttons {
+	padding-bottom: 15px;
+}
+
+.editableform .form-control {
+   width: 100%;
+}
+
+.open-task button, .task-info .button_to input{
+    margin: 4% 39%;
+}
+
+.info {
+    padding-bottom: 10px;
+}

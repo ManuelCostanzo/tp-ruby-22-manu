@@ -2,13 +2,19 @@ Rails.application.routes.draw do
 	
 	root to: "lists#index"
 	
-	resources :lists
+	get '/' => 'lists#index', as: 'lists' 
 
-	get '/:id' => 'lists#show'
+	post '/' => 'lists#create', as: 'new_list'
 
-  resources :simple, controller: 'tasks', type: 'Simple'
-  resources :longs, controller: 'tasks', type: 'Long'
-  resources :temporaries, controller: 'tasks', type: 'Temporary'
+	get '/:id' => 'lists#show', as: 'list'
+
+	put '/:id' => 'lists#update',  as: 'edit_list'
+
+	delete '/:id' => 'lists#destroy'
+
+	resources :tasks, :only => [:create, :update, :destroy]
+
+	post 'tasks/:id' => 'tasks#create'
 	
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

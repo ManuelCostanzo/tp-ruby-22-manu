@@ -2,7 +2,7 @@
 <p>Crea una lista, ingresa tus tareas y administralas como gustes</p>
 <div class="row">
   <div class="col-xs-7 offset-xs-2">
-    <%= bootstrap_form_for @list do |f| %>
+    <%= bootstrap_form_for list do |f| %>
       <div class="input-group">
         <%= f.text_field :title, hide_label: true, required: 'required' %>
         <span class="input-group-btn">
@@ -15,11 +15,11 @@
 
 <br>
 
-<% if @list.errors.any? %>
+<% if list.errors.any? %>
   <div class="row">
     <big>Ocurrieron los siguientes errores: </big>
     <br>
-    <% @list.errors.full_messages.each do |msg| %>
+    <% list.errors.full_messages.each do |msg| %>
       <mediun class="text-danger"> <%=msg %>. </medium>
       <br>
     <% end %>

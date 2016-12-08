@@ -1,4 +1,4 @@
-<%= bootstrap_form_for :task, remote: true do |f| %>
+<%= bootstrap_form_for Task.new, :url => task_path, remote: :true do |f| %>
 	<%= f.select :type, Task.types, include_blank: 'Agregar Tarea', hide_label: true %>
 	<div id="task-msg"></div>
 	<div id="simple">
@@ -10,5 +10,6 @@
 		<%= f.datetime_select :beginning, label: 'Inicio' %>
 		<%= f.datetime_select :ending, label: 'Fin' %>
 	</div>
-	<%= f.submit 'enviar', id: 'submit-task', style: 'display:none' %>
+	<%=f.hidden_field :list_id, value: @list.id %>
+	<%= f.submit 'Agregar', id: 'submit-task', class: 'btn btn-success', style: 'display:none' %>
 <% end %>

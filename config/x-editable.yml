@@ -1,0 +1,63 @@
+# More informations you can find here: https://github.com/werein/x-editable-rails
+class_options:
+  Simple:
+    description:
+      type: textarea
+      tag: p
+    priority_id:
+      type: select
+      source:
+        - 1: Alta
+        - 2: Media
+        - 3: Baja
+    status_id:
+      type: select
+      source:
+        - 1: Pendiente
+        - 2: Hecha
+  Long:
+    description:
+      type: textarea
+      tag: p
+    priority_id:
+      type: select
+      source:
+        - 1: Alta
+        - 2: Media
+        - 3: Baja
+    status_id:
+      type: select
+      source:
+        - 1: Pendiente
+        - 2: Hecha
+        - 4: En curso
+    percentage:
+      type: text
+  Temporary:
+    description:
+      type: textarea
+      tag: p
+    priority_id:
+      type: select
+      source:
+        - 1: Alta
+        - 2: Media
+        - 3: Baja
+    status_id:
+      type: select
+      source:
+        - 1: Pendiente
+        - 2: Hecha
+        - 3: Expirada
+    beginning:
+      type: combodate
+      format: DD/MM/YYYY HH:mm
+      combodate: { maxYear: 2030,  minuteStep: 1}
+      template: D/MMM/YYYY HH:mm
+      viewformat: D MMM, YYYY, HH:mm
+    ending:
+      type: combodate
+      format: DD/MM/YYYY HH:mm
+      combodate: { maxYear: 2030,  minuteStep: 1}
+      template: D/MMM/YYYY HH:mm
+      viewformat: D MMM, YYYY, HH:mm

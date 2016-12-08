@@ -1,13 +1,21 @@
 <div class="well">
-<h4 class="text-primary"><span class="label label-primary pull-right"><%= @list.tasks.pending.count %></span> Pendientes </h4>
+  <h4 class="text-primary"><span class="label label-primary pull-right"><%= @list.tasks.pending.count %></span> Pendientes </h4>
 </div>
-<% @list.tasks.pending.each do |t|%>
-	<div id="task-<%= t.id %>" class="task">
-		<%=  t.description %>  <br>
-		<div class="task-info" style="display:none">
-			prioridad: <%= t.priority.name %>  <br>
-			tipo: <%= t.type%> 
-		</div>
-	</div>
-		<br>
+<% if @list.tasks.pending.count > 0 %>
+	<% @list.tasks.pending.each do |t|%>
+			<% if t.type == 'Temporary' %>
+
+	    	<%= render partial: "tasks/temporary", locals: {t: t} %>
+	    <% else %>
+
+	    	<%= render partial: "tasks/simple", locals: {t: t} %>
+	    <% end %>
+	    
+			<span class="h5">Tipo:</span> <strong> <%= t.type %>  </strong>
+			<%= button_to 'Destroy', task_path(t), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure?' } %>
+	    </div>
+	  </div>
+	<% end %>
+<% else %>	
+	No hay ninguna tarea pendiente
 <% end %>

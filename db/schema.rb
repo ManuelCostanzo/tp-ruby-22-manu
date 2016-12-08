@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(version: 20161203223055) do
   create_table "tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "type",                      null: false
     t.text     "description", limit: 65535, null: false
-    t.datetime "beginning",                 null: false
-    t.datetime "ending",                    null: false
-    t.float    "percentaje",  limit: 24,    null: false
+    t.datetime "beginning"
+    t.datetime "ending"
+    t.float    "percentage",  limit: 24
     t.integer  "list_id"
     t.integer  "status_id"
     t.integer  "priority_id"
