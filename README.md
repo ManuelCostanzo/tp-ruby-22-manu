@@ -6,7 +6,7 @@ Como recien se crean las tareas, empiezan todas en pendiente
 
 
 
-<strong>CORRER:<strong> <br>
+<strong>CORRER:</strong> <br>
 bundle install <br>
 rails db:migrate <br>
 rails db:seed <br>
