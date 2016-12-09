@@ -1,3 +1,6 @@
+<strong> LINK A HEROKU: </strong> <a href="https://nameless-retreat-33257.herokuapp.com/"> Aqui </a><br>
+
+
 <strong>A TENER EN CUENTA:</strong> <br>
 <i>ANTES de correr rails db:seed, modificar en seed.rb, en la parte donde se crean las tareas temporarias, y modificar el beginning por una fecha posterior a este minuto y el ending por una fecha posterior al beginning.</i> <br>
 Para verificar que ande el job poner un rango de fechas cortito y pasada la fecha del ending entrar a la lista
