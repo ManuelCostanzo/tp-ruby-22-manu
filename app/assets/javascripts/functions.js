@@ -12,13 +12,6 @@ $(document).on('turbolinks:load', function() {
     '<i class="fa fa-fw fa-times"></i>'+
   '</button>';
 
-$.fn.editableform.template = '<form class="form-inline editableform">'+
-    '<div class="control-group">' +
-    '<div><div class="editable-input"></div><div class="editable-buttons"></div></div>'+
-    '<div class="editable-error-block"></div>' +
-    '</div>' +
-    '</form>';
-
   $.fn.editable.defaults.ajaxOptions = {dataType: 'json'};
 
       var original = $.fn.editableutils.setCursorPosition;
