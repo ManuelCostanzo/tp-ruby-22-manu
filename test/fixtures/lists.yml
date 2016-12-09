@@ -1,9 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  url: MyString
+list_one:
+  id: 1
+  title: primera lista
+  url: primera-lista
 
-two:
-  title: MyString
-  url: MyString
+list_two:
+  id: 2
+  title: segunda lista
+  url: segunda-lista
+
+list_tree:
+  id: 3
+  title: Tercera lista para job
+  url: tercera-lista-para-job

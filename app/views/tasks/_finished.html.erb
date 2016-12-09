@@ -14,10 +14,10 @@
 
 		<% if t.type == 'Temporary' %>
 			<div class="info">
-				<span class="h5">Inicio:</span><strong><%= t.beginning.strftime("%d/%m/%Y %I:%M") %></strong>
+				<span class="h5">Inicio:</span><strong><%= t.beginning.strftime("%d/%m/%Y %k:%M") %></strong>
 			</div>			
 			<div class="info">
-				<span class="h5">Fin:</span><strong><%= t.ending.strftime("%d/%m/%Y %I:%M") %></strong>
+				<span class="h5">Fin:</span><strong><%= t.ending.strftime("%d/%m/%Y %k:%M") %></strong>
 			</div>			
 		<% elsif t.type == 'Long' %>
 			<div class="info">

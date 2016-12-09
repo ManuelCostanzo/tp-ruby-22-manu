@@ -1,21 +1,63 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  type: 
-  description: MyText
-  beginning: 2016-12-03 19:28:34
-  ending: 2016-12-03 19:28:34
-  percentaje: 1.5
-  list: one
-  status: one
-  priority: one
+list_one_simple_task_high:
+  id: 1
+  description: tarea simple con prioridad alta de la lista 1
+  type: Simple
+  priority_id: 1
+  status_id: 1
+  list_id: 1
 
-two:
-  type: 
-  description: MyText
-  beginning: 2016-12-03 19:28:34
-  ending: 2016-12-03 19:28:34
-  percentaje: 1.5
-  list: two
-  status: two
-  priority: two
+list_one_simple_task_half:
+  id: 2
+  description: tarea simple con prioridad media de la lista 1
+  type: Simple
+  priority_id: 2
+  status_id: 1
+  list_id: 1
+
+list_one_simple_task_slow:
+  id: 3
+  description: tarea simple con prioridad baja de la lista 1
+  type: Simple
+  priority_id: 3
+  status_id: 1
+  list_id: 1
+
+list_two_simple_task_low:
+  id: 4
+  description: tarea simple con prioridad baja de la lista 2
+  type: Simple
+  priority_id: 3
+  status_id: 1
+  list_id: 2
+
+list_two_temporary_task_high:
+  id: 5
+  description: tarea temporaria con prioridad alta de la lista 2
+  type: Temporary
+  beginning: 2016-12-08 23:41:12
+  ending: 2016-12-08 23:44:12
+  priority_id: 1
+  status_id: 1
+  list_id: 2
+
+list_two_long_task_half:
+  id: 6
+  description: tarea larga con prioridad mediade la lista 2
+  type: Long
+  beginning: 2016-12-08 23:41:12
+  ending: 2016-12-08 23:44:12
+  priority_id: 2
+  status_id: 1
+  list_id: 2
+
+list_tree_date_expired:
+  id: 7
+  description: tarea temporaria la cual se le acabo el tiempo
+  type: Temporary
+  beginning: 2015-12-08 23:41:12
+  ending: 2015-12-08 23:44:12
+  priority_id: 1
+  status_id: 1
+  list_id: 3

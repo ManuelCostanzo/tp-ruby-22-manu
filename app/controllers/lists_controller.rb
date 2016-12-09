@@ -13,14 +13,13 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(allowed_params)
-    @list.url = @list.title.downcase.parameterize
-
-      if @list.save
-        set_user_list
-        redirect_to @list
-      else
-        get_user_lists
-        render action: :index
+    
+    if @list.save
+      set_user_list
+      redirect_to @list
+    else
+      get_user_lists
+      render action: :index
     end
   end
 

@@ -4,6 +4,6 @@ class DateCheckerJob < ApplicationJob
   def perform(list)
     list.tasks.temporary.each do |task|
       task.update_attributes status_id: 4 if task.ending < DateTime.now
-    end 
+    end
   end
 end
