@@ -2,8 +2,9 @@
 	
 	<div class="open-task">
 		<%= truncate(t.description, :length => 100) %>
-		<br>
-		<button class="btn btn-primary btn-sm"><%= t(:see) %></button>
+	<div class="row">
+	    <div class="col-xs-4 offset-xs-4 button"><button class="btn btn-primary btn-sm"><%= t(:see) %></button></div>
+	</div>
 	</div>
 
 	<div class="task-info" style="display:none">
@@ -28,4 +29,8 @@
 		<div class="info">
 			<span class="h5"><%= t(:type) %>:</span> <strong> <%= t(t.type) %>  </strong>
 		</div>
-		<%= button_to t(:destroy), task_path(t), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "#{t(:are_you_sure)}?" } %>
+		<div class="row">
+		    <div class="col-xs-4 offset-xs-4 button">
+					<%= button_to t(:destroy), task_path(t), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "#{t(:are_you_sure)}?" } %>
+			</div>
+		</div>

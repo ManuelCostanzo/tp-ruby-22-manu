@@ -1,5 +1,6 @@
 class Long < Task
 	before_validation :verify_if_complete, :verify_status, :reset_percentage, on: :update
+	before_create :initialize_percentage
 
 	validates_numericality_of :percentage, 
 		numericality: {only_float: true},
@@ -12,11 +13,20 @@ class Long < Task
 		presence:true, on: :update
 
 	private
+
+		def initialize_percentage
+			self.percentage = 0
+		end
+
 		def verify_if_complete
 			self.status_id = 3 if self.percentage == 100
 		end
 
 		def reset_percentage
-			self.percentage = 0 if self.status_id == 1
+			if self.status_id == 1
+				self.percentage = 0.0
+			elsif self.status_id == 3
+				self.percentage = 100
+			end
 		end
 end

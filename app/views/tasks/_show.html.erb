@@ -1,9 +1,9 @@
-<div class="col-md-3">
+<div class="col-md-3 box-task pending">
     <div id="pending">
       <%= render partial: 'tasks/pending'%>   
     </div>
 </div>
-<div class="col-md-3">
+<div class="col-md-3 box-task in-progress">
   <div class="well">
     <h4 class="text-warning"><span class="label label-success pull-right"><%= @list.tasks.in_progress.count %></span> <%= t(:in_progress) %> </h4>
   </div>
@@ -15,7 +15,7 @@
     <%= t(:no_task_in_progress) %>
   <% end %>
 </div>
-<div class="col-md-3">
+<div class="col-md-3 box-task completed">
   <div class="well">
     <h4 class="text-success"><span class="label label-success pull-right"><%= @list.tasks.completed.count %></span> <%= t(:made) %> </h4>
   </div>
@@ -30,7 +30,7 @@
     <%= t(:no_completed_tasks) %>
   <% end%>
 </div>
-<div class="col-md-3">
+<div class="col-md-3 box-task expired">
   <div class="well">
     <h4 class="text-danger"><span class="label label-danger pull-right"><%= @list.tasks.expired.count %></span> <%= t(:expired) %> </h4>
   </div>

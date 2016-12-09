@@ -2,17 +2,19 @@
 	
 	<div class="open-task">
 		<%= truncate(t.description, :length => 100) %>
-		<button class="btn btn-primary btn-sm"><%= t(:edit) %></button>
+	<div class="row">
+	    <div class="col-xs-4 offset-xs-4 button"><button class="btn btn-primary btn-sm"><%= t(:edit) %></button></div>
 	</div>
+</div>
 
 	<div class="task-info" style="display:none">
 		<%= editable t, :description, url: task_path(t), value: t.description %>
 		 <div class="info">
-		 		<span class="h5"><%= t(:priority) %>:</span> 
+		 		<span class="h5"><%= t(:priority) %>: </span> 
 		 		<strong><%= editable t, :priority_id, url: task_path(t), value: t.priority.id %></strong>
 		 	</div>
 
 		 <div class="info">
-			 <span class="h5"><%= t(:status) %>:</span> 
+			 <span class="h5"><%= t(:status) %>: </span> 
 			 <strong><%= editable t, :status_id, url: task_path(t), value: t.status.id %></strong>
 		 </div>

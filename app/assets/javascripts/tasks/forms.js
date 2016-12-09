@@ -1,5 +1,14 @@
 $(document).on('turbolinks:load', function() {
 
+/********** ESTILOS BOTONES DE TASK **********/
+
+$('.in-progress button').removeClass('btn-primary').addClass('btn-warning');
+$('.completed button').removeClass('btn-primary').addClass('btn-success');
+$('.expired button').removeClass('btn-primary').addClass('btn-danger');
+
+
+//////////////////////////////////////////////////////////
+
 
 /********** FORMULARIO DE CREACION DE TAREA **********/
 	function hideTaskForm() {
@@ -53,18 +62,17 @@ $(document).on('turbolinks:load', function() {
 		$(this).addClass('show').hide();
 		$(this).next(".task-info").show("slow");
 		$(this).next('.task-info').find('.editable').editable({
-			    success : function(response) {
-							$('.tasks').html(response.html);
-			        update_date(response.date);
-			        update_tasks_count();
-							$(window).scrollTop($('#task-' + response.id).offset().top);
-							$('#task-' + response.id).hide().fadeIn(1500);
-			    },
-			    error: function(errors) {
-			    	return errors.responseJSON.toString().replace(/,/g, ".\n");
-			    }
-			});
-
+	    success : function(response) {
+					$('.tasks').html(response.html);
+	        update_date(response.date);
+	        update_tasks_count();
+					$(window).scrollTop($('#task-' + response.id).offset().top);
+					$('#task-' + response.id).hide().fadeIn(1500);
+	    },
+	    error: function(errors) {
+	    	return errors.responseJSON.toString().replace(/,/g, ".\n");
+	    }
+		});
 	});
 //////////////////////////////////////////////////////////
 

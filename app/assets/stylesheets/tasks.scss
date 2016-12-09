@@ -27,10 +27,31 @@
    width: 100%;
 }
 
-.open-task button, .task-info .button_to input{
-    margin: 4% 39%;
+.col-xs-4.offset-xs-4.button {
+    padding-bottom: 11px;
+    margin-top: 9px;
 }
 
 .info {
     padding-bottom: 10px;
+}
+
+.box-task {
+    padding-bottom: 48px;
+}
+
+.pending .task {
+    border-color: #0275d8;
+}
+
+.in-progress .task {
+    border-color: #f0ad4e;
+}
+
+.completed .task {
+    border-color: #5cb85c;
+}
+
+.expired .task {
+    border-color: #d9534f;
 }

@@ -3,16 +3,18 @@
 </div>
 <% if @list.tasks.pending.count > 0 %>
 	<% @list.tasks.pending.each do |t|%>
+			<%= render partial: "tasks/simple", locals: {t: t} %>
+
 			<% if t.type == 'Temporary' %>
-
 	    	<%= render partial: "tasks/temporary", locals: {t: t} %>
-	    <% else %>
-
-	    	<%= render partial: "tasks/simple", locals: {t: t} %>
 	    <% end %>
 	    
-			<span class="h5"><%= t(:type) %>:</span> <strong> <%= t(t.type) %>  </strong>
-			<%= button_to t(:destroy), task_path(t), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "#{t(:are_you_sure)}?" } %>
+			<span class="h5"><%= t(:type) %>: </span> <strong> <%= t(t.type) %>  </strong>
+			<div class="row">
+			    <div class="col-xs-4 offset-xs-4 button">
+						<%= button_to t(:destroy), task_path(t), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "#{t(:are_you_sure)}?" } %>
+				</div>
+			</div>
 	    </div>
 	  </div>
 	<% end %>
