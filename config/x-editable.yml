@@ -14,7 +14,7 @@ class_options:
       type: select
       source:
         - 1: Pendiente
-        - 2: Hecha
+        - 3: Hecha
   Long:
     description:
       type: textarea
@@ -29,10 +29,11 @@ class_options:
       type: select
       source:
         - 1: Pendiente
-        - 2: Hecha
-        - 4: En curso
+        - 2: En curso
+        - 3: Hecha
     percentage:
-      type: text
+      type: number
+      step: 0.1
   Temporary:
     description:
       type: textarea
@@ -47,8 +48,8 @@ class_options:
       type: select
       source:
         - 1: Pendiente
-        - 2: Hecha
-        - 3: Expirada
+        - 3: Hecha
+        - 4: Expirada
     beginning:
       type: combodate
       format: DD/MM/YYYY HH:mm

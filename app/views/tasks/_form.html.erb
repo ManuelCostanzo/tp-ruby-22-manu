@@ -3,13 +3,12 @@
 	<div id="task-msg"></div>
 	<div id="simple">
 		<%= f.text_area :description, size: '10x3', placeholder: 'Agregar Descripcion', hide_label: true %>
-		<%= f.select :priority_id, Priority.all.map{|p| [p.name, p.id]}, include_blank: 'Elegir Prioridad', hide_label: true %>
+		<%= f.select :priority_id, get_priority_array(Priority.all), include_blank: 'Elegir Prioridad', hide_label: true %>
 	</div>
 
 	<div id="temporary">
 		<%= f.datetime_select :beginning, label: 'Inicio' %>
 		<%= f.datetime_select :ending, label: 'Fin' %>
 	</div>
-	<%=f.hidden_field :list_id, value: @list.id %>
 	<%= f.submit 'Agregar', id: 'submit-task', class: 'btn btn-success', style: 'display:none' %>
 <% end %>

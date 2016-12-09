@@ -23,5 +23,6 @@ module Wolflist
     # -- all .rb files in that directory are automatically loaded.
 		config.time_zone = 'Buenos Aires' 
 		config.active_record.default_timezone = :local
+		config.autoload_paths += %W(#{config.root}/app/models/tasks)
   end
 end

@@ -8,9 +8,9 @@
 
 Status.create! [
 { name: 'Pendiente' },
+{ name: 'En curso' },
 { name: 'Hecha' },
-{ name: 'Expirada' },
-{ name: 'En curso' }
+{ name: 'Expirada' }
 ]
 
 Priority.create! [

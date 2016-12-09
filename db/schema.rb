@@ -33,16 +33,16 @@ ActiveRecord::Schema.define(version: 20161203223055) do
   end
 
   create_table "tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "type",                      null: false
-    t.text     "description", limit: 65535, null: false
+    t.string   "type",                                  null: false
+    t.text     "description", limit: 65535,             null: false
     t.datetime "beginning"
     t.datetime "ending"
     t.float    "percentage",  limit: 24
-    t.integer  "list_id"
-    t.integer  "status_id"
+    t.integer  "list_id",                               null: false
+    t.integer  "status_id",                 default: 1, null: false
     t.integer  "priority_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.index ["list_id"], name: "index_tasks_on_list_id", using: :btree
     t.index ["priority_id"], name: "index_tasks_on_priority_id", using: :btree
     t.index ["status_id"], name: "index_tasks_on_status_id", using: :btree

@@ -1,5 +1,7 @@
 $(document).on('turbolinks:load', function() {
 
+
+/********** FORMULARIO DE CREACION DE TAREA **********/
 	function hideTaskForm() {
 		$("#simple, #temporary, #submit-task").hide();
 	}
@@ -24,6 +26,10 @@ $(document).on('turbolinks:load', function() {
 	  	$("#task-msg").empty().removeAttr('class');
 	});
 
+//////////////////////////////////////////////////////////
+
+
+/********** AGARRO LA RESPUESTA DEL FORMULARIO DE CREACION DE TAREA **********/
 	$('#new_task').on('ajax:success', function(event, xhr, status, error) {
 		$('#pending').html(xhr.html);
 		update_date(xhr.date);
@@ -37,7 +43,10 @@ $(document).on('turbolinks:load', function() {
   	$("#task-msg").removeAttr('class').addClass("alert alert-danger").html(xhr.responseJSON.toString().replace(/,/g, ".</br>"));
 	});
 
+//////////////////////////////////////////////////////////
 
+
+/********** MUESTRO INFORMACION DE LAS TAREAS, HACIENDOLAS EDITABLES Y AGARRO LA RESPUESTA **********/
 	$(document).on( "click", ".open-task", function() {
 		$('.show').removeClass('show').show().next(".task-info").hide();
 		$(this).addClass('show').hide();
@@ -56,4 +65,6 @@ $(document).on('turbolinks:load', function() {
 			});
 
 	});
+//////////////////////////////////////////////////////////
+
 });

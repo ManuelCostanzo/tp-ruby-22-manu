@@ -1,11 +1,10 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:update, :destroy]
-  before_action :set_list, :set_type
+  before_action :set_list
 
   def create
-    @task = Task.new(create_params)
+    @task = type.constantize.new(create_params)
     @task.list_id =  @list.id
-    @task.status_id = 1
 
      if @task.save
       update_list_time
@@ -22,7 +21,7 @@ class TasksController < ApplicationController
 
   def update
     @list = @task.list
-    if @task.update_attributes update_params
+    if @task.update_attributes send("#{@task.type.underscore.to_sym}_params")
       update_list_time
       render json:{
                     date: date_format(@task.updated_at, 'Actualizado'), 
@@ -37,7 +36,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    update_list_time()
+    update_list_time
     redirect_to @list
   end
 
@@ -52,23 +51,31 @@ class TasksController < ApplicationController
       @task = Task.find(params[:id])
     end
 
-    def set_type
-      @type = type
-    end
-
     def type
-      Task.types.include?(params[:type]) ? params[:type] : "Simple"
-    end
-
-    def update_list_time()
-      @list.update_attributes updated_at: DateTime.now
+      Task.types.include?(params[:task][:type]) ? params[:task][:type] : "Simple"
     end
 
     def create_params
-      params.require(:task).permit(:description, :type, :priority_id, :beginning, :ending)
+      if type == 'Temporary'
+        params.require(:task).permit(:description, :type, :priority_id, :beginning, :ending)
+      else
+        params.require(:task).permit(:description, :type, :priority_id)
+      end
     end
 
-    def update_params
-      params.require(type.underscore.to_sym).permit(:description, :status_id, :priority_id, :percentage, :beginning, :ending)
+    def update_list_time
+      @list.update_attributes updated_at: DateTime.now
+    end
+
+    def simple_params
+      params.require(:simple).permit(:description, :status_id, :priority_id)
+    end
+
+    def temporary_params
+      params.require(:temporary).permit(:description, :status_id, :priority_id, :beginning, :ending)
+    end
+
+    def long_params
+      params.require(:long).permit(:description, :status_id, :priority_id, :percentage)
     end
 end
