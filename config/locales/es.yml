@@ -1,4 +1,5 @@
 es:
+  title_page: WolfList
   create_list: Crear Lista
   description_create: Crea una lista, ingresa tus tareas y administralas como gustes
   following_errors: Ocurrieron los siguientes errores

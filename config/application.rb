@@ -25,7 +25,5 @@ module Wolflist
 		config.active_record.default_timezone = :local
 		config.autoload_paths += %W(#{config.root}/app/models/tasks)
 		config.active_job.queue_adapter = :inline
-		config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
-		config.assets.initialize_on_precompile = false
   end
 end
