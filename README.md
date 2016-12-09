@@ -1,4 +1,5 @@
-<strong> LINK A HEROKU: </strong> <a href="https://nameless-retreat-33257.herokuapp.com/"> Aqui </a><br>
+<strong> LINK A HEROKU: </strong> <a href="https://wolflist.herokuapp.com/"> Aqui </a><br>
+<strong> LINK AL REPO DE HEROKU: </strong> <a href="https://git.heroku.com/wolflist.git"> Aqui </a><br>
 
 
 <strong>A TENER EN CUENTA:</strong> <br>
