@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/romanbsd/heroku-deflater.git
+  revision: 60d92ba0f8ae2b51b9496ffba85d0d73f0071b9f
+  specs:
+    heroku-deflater (0.6.2)
+      rack (>= 1.4.5)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -185,6 +192,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   font-awesome-sass (~> 4.7.0)
   foreman
+  heroku-deflater!
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
