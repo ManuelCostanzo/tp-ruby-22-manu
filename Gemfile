@@ -72,4 +72,6 @@ gem 'x-editable-rails'
 
 gem 'rails-i18n', '~> 5.0.0'
 
+gem 'foreman'
+
 ruby "2.3.2"
