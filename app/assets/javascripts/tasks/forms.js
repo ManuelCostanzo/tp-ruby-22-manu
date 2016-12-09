@@ -31,6 +31,7 @@ $(document).on('turbolinks:load', function() {
 
 /********** AGARRO LA RESPUESTA DEL FORMULARIO DE CREACION DE TAREA **********/
 	$('#new_task').on('ajax:success', function(event, xhr, status, error) {
+		$("#task-msg").removeAttr('class').addClass("alert alert-success").html('Tarea agregada como pendiente');
 		$('#pending').html(xhr.html);
 		update_date(xhr.date);
 	 	update_tasks_count();
