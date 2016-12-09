@@ -1,11 +1,11 @@
-<h3 class="title">Mis Listas</h3>
+<h3 class="title"><%= t(:my_lists) %></h3>
 <% if @lists.present? %>
   <% for list in @lists %>
     <p> <%= link_to list.title, list %>  <p>
   <% end %>
   
   <div class="more">
-    <a href="#" title="Ver Mas"> Ver Mas <i class="fa fa-angle-double-right"></i> </a>
+    <a href="#" title="Ver Mas"> <%= t(:see_more) %> <i class="fa fa-angle-double-right"></i> </a>
   </div>
 <% else %>
   <p>No agregaste ninguna lista</p>

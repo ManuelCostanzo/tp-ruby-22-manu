@@ -1,5 +1,5 @@
 <%= render partial: "tasks/long", locals: {t: t} %>	    
-<span class="h5">Tipo:</span> <strong> <%= t.type %>  </strong>
-<%= button_to 'Destroy', task_path(t), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure?' } %>
+<span class="h5"><%= t(:type) %>:</span> <strong> <%= t(t.type) %>  </strong>
+		<%= button_to t(:destroy), task_path(t), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "#{t(:are_you_sure)}?" } %>
 </div>
 </div>

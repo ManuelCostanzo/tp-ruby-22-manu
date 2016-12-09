@@ -1,5 +1,5 @@
 <div class="well">
-  <h4 class="text-primary"><span class="label label-primary pull-right"><%= @list.tasks.pending.count %></span> Pendientes </h4>
+  <h4 class="text-primary"><span class="label label-primary pull-right"><%= @list.tasks.pending.count %></span> <%= t(:pending) %> </h4>
 </div>
 <% if @list.tasks.pending.count > 0 %>
 	<% @list.tasks.pending.each do |t|%>
@@ -11,11 +11,11 @@
 	    	<%= render partial: "tasks/simple", locals: {t: t} %>
 	    <% end %>
 	    
-			<span class="h5">Tipo:</span> <strong> <%= t.type %>  </strong>
-			<%= button_to 'Destroy', task_path(t), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure?' } %>
+			<span class="h5"><%= t(:type) %>:</span> <strong> <%= t(t.type) %>  </strong>
+			<%= button_to t(:destroy), task_path(t), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "#{t(:are_you_sure)}?" } %>
 	    </div>
 	  </div>
 	<% end %>
 <% else %>	
-	No hay ninguna tarea pendiente
+	<%= t(:no_pending_tasks) %>
 <% end %>

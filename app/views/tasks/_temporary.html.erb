@@ -1,6 +1,6 @@
 <%= render partial: 'tasks/simple', locals: {t: t} %>
 
 <div class="info">
-	<span class="h5">Finaliza:</span>
+	<span class="h5"><%= t(:end) %>: </span>
 	<strong><%= editable t, :ending, url: task_path(t), value: t.ending.strftime("%d/%m/%Y %k:%M") %></strong>	
 </div>

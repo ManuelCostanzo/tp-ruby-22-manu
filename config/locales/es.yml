@@ -1,0 +1,51 @@
+es:
+  create_list: Crear Lista
+  description_create: Crea una lista, ingresa tus tareas y administralas como gustes
+  following_errors: Ocurrieron los siguientes errores
+  my_lists: Mis Listas
+  see_more: Ver Mas
+  list_data: Datos de la lista
+  number_of_task: Cantidad de tareas
+  destroy: 'Eliminar'
+  are_you_sure: Estas seguro
+  copy_link: Copiar link
+  add_task: Agregar Tarea
+  add_description: Agregar Descripcion
+  choose_priority: Elegir Prioridad
+  start: Inicio
+  end: Fin
+  add: Agregar
+  Simple: Simple
+  Temporary: Temporaria
+  Long: Larga
+  pending: Pendientes
+  in_progress: En curso
+  made: Hechas
+  expired: Expiradas
+  no_task_in_progress: No hay ninguna tarea en curso
+  no_completed_tasks: No hay ninguna tarea finalizada
+  no_expired_tasks: No hay ninguna tarea expirada
+  no_pending_tasks: No hay ninguna tarea pendiente
+  type: Tipo
+  priority: Prioridad
+  status: Estado
+  percentage: Porcentaje
+  see: Ver
+  edit: Editar
+  activerecord:
+    models:
+      list: Lista
+      task: Tarea
+      priority: Prioridad
+      status: Estado
+    attributes:
+      list:
+        title: titulo
+      task:
+        type: tipo
+        description: Descripcion
+        beginning: Inicio
+        ending: Fin
+        priority: Prioridad
+        status: Estado
+        percentage: Porcentaje

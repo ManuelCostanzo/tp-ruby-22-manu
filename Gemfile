@@ -62,3 +62,5 @@ gem 'validates_timeliness', '~> 4.0'
 gem "strip_attributes"
 
 gem 'x-editable-rails'
+
+gem 'rails-i18n', '~> 5.0.0'

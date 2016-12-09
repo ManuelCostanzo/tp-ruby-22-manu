@@ -1,14 +1,14 @@
 <%= bootstrap_form_for Task.new, :url => task_path, remote: :true do |f| %>
-	<%= f.select :type, Task.types, include_blank: 'Agregar Tarea', hide_label: true %>
+	<%= f.select :type, get_types_array(Task.types), include_blank: t(:add_task), hide_label: true %>
 	<div id="task-msg"></div>
 	<div id="simple">
-		<%= f.text_area :description, size: '10x3', placeholder: 'Agregar Descripcion', hide_label: true %>
-		<%= f.select :priority_id, get_priority_array(Priority.all), include_blank: 'Elegir Prioridad', hide_label: true %>
+		<%= f.text_area :description, size: '10x3', placeholder: t(:add_description), hide_label: true %>
+		<%= f.select :priority_id, get_priority_array(Priority.all), include_blank: t(:choose_priority), hide_label: true %>
 	</div>
 
 	<div id="temporary">
-		<%= f.datetime_select :beginning, label: 'Inicio' %>
-		<%= f.datetime_select :ending, label: 'Fin' %>
+		<%= f.datetime_select :beginning %>
+		<%= f.datetime_select :ending %>
 	</div>
-	<%= f.submit 'Agregar', id: 'submit-task', class: 'btn btn-success', style: 'display:none' %>
+	<%= f.submit t(:add), id: 'submit-task', class: 'btn btn-success', style: 'display:none' %>
 <% end %>

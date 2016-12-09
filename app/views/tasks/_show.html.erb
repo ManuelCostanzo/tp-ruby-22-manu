@@ -5,19 +5,19 @@
 </div>
 <div class="col-md-3">
   <div class="well">
-    <h4 class="text-warning"><span class="label label-success pull-right"><%= @list.tasks.in_progress.count %></span> En curso </h4>
+    <h4 class="text-warning"><span class="label label-success pull-right"><%= @list.tasks.in_progress.count %></span> <%= t(:in_progress) %> </h4>
   </div>
   <% if @list.tasks.in_progress.count > 0 %>
     <% @list.tasks.in_progress.each do |t|%>
         <%= render partial: 'tasks/in_progress', locals: {t: t} %>
     <% end %>  
   <% else %>  
-    No hay ninguna tarea en curso
+    <%= t(:no_task_in_progress) %>
   <% end %>
 </div>
 <div class="col-md-3">
   <div class="well">
-    <h4 class="text-success"><span class="label label-success pull-right"><%= @list.tasks.completed.count %></span> Hechas </h4>
+    <h4 class="text-success"><span class="label label-success pull-right"><%= @list.tasks.completed.count %></span> <%= t(:made) %> </h4>
   </div>
 
   <% if @list.tasks.completed.count > 0 %>
@@ -27,12 +27,12 @@
       </div>
     <% end %>  
   <% else %>  
-    No hay ninguna tarea finalizada
+    <%= t(:no_completed_tasks) %>
   <% end%>
 </div>
 <div class="col-md-3">
   <div class="well">
-    <h4 class="text-danger"><span class="label label-danger pull-right"><%= @list.tasks.expired.count %></span> Expiradas </h4>
+    <h4 class="text-danger"><span class="label label-danger pull-right"><%= @list.tasks.expired.count %></span> <%= t(:expired) %> </h4>
   </div>
   <% if @list.tasks.expired.count > 0 %>
     <% @list.tasks.expired.each do |t|%>
@@ -41,6 +41,6 @@
       </div>
     <% end %>  
   <% else %>  
-    No hay ninguna tarea expirada
+    <%= t(:no_expired_tasks) %>
   <% end%>
 </div>

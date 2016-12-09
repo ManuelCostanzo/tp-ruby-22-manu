@@ -1,12 +1,12 @@
-<h1> Crear Lista </h1>
-<p>Crea una lista, ingresa tus tareas y administralas como gustes</p>
+<h1> <%= t(:create_list) %> </h1>
+<p><%= t(:description_create) %></p>
 <div class="row">
   <div class="col-xs-7 offset-xs-2">
     <%= bootstrap_form_for list do |f| %>
       <div class="input-group">
         <%= f.text_field :title, hide_label: true, required: 'required' %>
         <span class="input-group-btn">
-		  <%= f.submit "Crear Lista", class: "btn btn-primary" %>
+		  <%= f.submit t(:create_list), class: "btn btn-primary" %>
 		</span>
       </div>
     <% end %>
@@ -17,7 +17,7 @@
 
 <% if list.errors.any? %>
   <div class="row">
-    <big>Ocurrieron los siguientes errores: </big>
+    <big><%= t(:following_errors) %>:</big>
     <br>
     <% list.errors.full_messages.each do |msg| %>
       <mediun class="text-danger"> <%=msg %>. </medium>
