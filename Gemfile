@@ -46,7 +46,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'heroku-deflater', git: "https://github.com/romanbsd/heroku-deflater.git"
 end
 
 
