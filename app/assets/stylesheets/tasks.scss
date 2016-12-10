@@ -11,6 +11,10 @@
     padding-bottom: 13px;
 }
 
+.task .editableform .control-group {
+	width: 100%;
+}
+
 span.editable-clear-x {
     display: none!important;
 }
@@ -25,6 +29,7 @@ span.editable-clear-x {
 
 .task .editable-buttons {
 	padding-bottom: 15px;
+	display: table;
 }
 
 .editableform .form-control {
