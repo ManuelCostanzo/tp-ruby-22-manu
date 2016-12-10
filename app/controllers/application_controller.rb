@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 	  true
 	end
 
-	def date_format(date, title) 
-		 date.strftime("#{title} el %m/%d/%Y a las %I:%M:%S%p")
+	def date_format
+		 DateTime.now.strftime("Actualizado el %m/%d/%Y a las %I:%M:%S%p")
 	end
 end

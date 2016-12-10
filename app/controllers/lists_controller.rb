@@ -26,7 +26,7 @@ class ListsController < ApplicationController
   def update
 
     if @list.update_attributes allowed_params
-      render json: {date: date_format(@list.updated_at, 'Actualizado'), status: :ok}
+      render json: {date: date_format, status: :ok}
     else
       render json: @list.errors.full_messages, status: :unprocessable_entity
     end

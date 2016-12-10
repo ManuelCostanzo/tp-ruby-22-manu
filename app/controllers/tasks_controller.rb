@@ -1,19 +1,14 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:update, :destroy]
-  before_action :set_list
+  before_action :set_list, only: [:create]
 
   def create
-    @task = type.constantize.new(create_params)
+    @task = type.constantize.new(send(method_params, :task))
     @task.list_id =  @list.id
 
      if @task.save
       update_list_time
-      render json:{
-                    date: date_format(@list.updated_at, 'Actualizado'), 
-                    html: render_to_string(partial: 'tasks/pending'),
-                    id: @task.id,
-                    status: :ok
-                  }
+      render json: get_json('tasks/pending')
     else
       render json: @task.errors.full_messages, status: :unprocessable_entity
     end
@@ -21,14 +16,9 @@ class TasksController < ApplicationController
 
   def update
     @list = @task.list
-    if @task.update_attributes send("#{@task.type.underscore.to_sym}_params")
+    if @task.update_attributes send(method_params, @task.type.underscore.to_sym)
       update_list_time
-      render json:{
-                    date: date_format(@task.updated_at, 'Actualizado'), 
-                    html: render_to_string(partial: 'tasks/show'), 
-                    id: @task.id,
-                    status: :ok
-                  }
+      render json: get_json('tasks/show')
     else
       render json: @task.errors.full_messages, status: :unprocessable_entity
     end
@@ -44,7 +34,7 @@ class TasksController < ApplicationController
   private
 
     def set_list
-      @list = List.find_by(url: params[:id]).nil? ? @task.list : List.find_by(url: params[:id])
+      @list = List.find_by(url: params[:id])
     end
 
     def set_task
@@ -55,27 +45,31 @@ class TasksController < ApplicationController
       Task.types.include?(params[:task][:type]) ? params[:task][:type] : "Simple"
     end
 
-    def create_params
-      if type == 'Temporary'
-        params.require(:task).permit(:description, :type, :priority_id, :beginning, :ending)
+    def method_params
+      if @task.nil?
+        "#{type.underscore.to_sym}_params"
       else
-        params.require(:task).permit(:description, :type, :priority_id)
+        "#{@task.type.underscore.to_sym}_params"
       end
+    end
+
+    def simple_params(sym)
+      params.require(sym).permit(:description, :status_id, :priority_id)
+    end
+
+    def temporary_params(sym)
+      params.require(sym).permit(:description, :status_id, :priority_id, :beginning, :ending)
+    end
+
+    def long_params(sym)
+      params.require(sym).permit(:description, :status_id, :priority_id, :percentage)
     end
 
     def update_list_time
       @list.update_attributes updated_at: DateTime.now
-    end
+    end    
 
-    def simple_params
-      params.require(:simple).permit(:description, :status_id, :priority_id)
-    end
-
-    def temporary_params
-      params.require(:temporary).permit(:description, :status_id, :priority_id, :beginning, :ending)
-    end
-
-    def long_params
-      params.require(:long).permit(:description, :status_id, :priority_id, :percentage)
+    def get_json(partial)
+      { date: date_format, html: render_to_string(partial: partial), id: @task.id, status: :ok }
     end
 end
