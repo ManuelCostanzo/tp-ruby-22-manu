@@ -11,8 +11,11 @@ Como recien se crean las tareas, empiezan todas en pendiente
 
 <strong>CORRER:</strong> <br>
 bundle install <br>
-rails db:migrate <br>
-rails db:seed <br>
+bundle exec rails db:create db:migrate db:seed <br>
+bundle exec rails db:test:prepare <br>
+bundle exec rails db:seed RAILS_ENV=test <br>
+bundle exec rails server (correr la aplicacion) <br>
+bundle exec rails test (correr los tests) <br>
 
 <strong>TAREAS:</strong> <br>
 En las tareas temporarias, la fecha de inicio queda fija una vez creada la tarea, por ende no puede modificarse <br>
