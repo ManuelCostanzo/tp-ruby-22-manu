@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:update, :destroy]
-  before_action :set_list, only: [:create]
+  before_action :set_list, only: [:create, :update, :destroy]
+  after_action :update_list_time, only: [:destroy]
 
   def create
     @task = type.constantize.new(send(method_params, :task))
@@ -15,7 +16,6 @@ class TasksController < ApplicationController
   end
 
   def update
-    @list = @task.list
     if @task.update_attributes send(method_params, @task.type.underscore.to_sym)
       update_list_time
       render json: get_json('tasks/show')
@@ -26,7 +26,6 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    update_list_time
     redirect_to @list
   end
 
@@ -34,7 +33,7 @@ class TasksController < ApplicationController
   private
 
     def set_list
-      @list = List.find_by(url: params[:id])
+      @list = @task.nil? ? List.find_by(url: params[:id]) : @task.list
     end
 
     def set_task
@@ -46,11 +45,7 @@ class TasksController < ApplicationController
     end
 
     def method_params
-      if @task.nil?
-        "#{type.underscore.to_sym}_params"
-      else
-        "#{@task.type.underscore.to_sym}_params"
-      end
+      @task.nil? ? "#{type.underscore.to_sym}_params" : "#{@task.type.underscore.to_sym}_params"
     end
 
     def simple_params(sym)
