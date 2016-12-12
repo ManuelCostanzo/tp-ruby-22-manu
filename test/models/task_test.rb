@@ -54,7 +54,7 @@ class TaskTest < ActiveSupport::TestCase
 	end
 
 	test "should not save temporary task with inverted dates" do
-	  temporary = Temporary.new(hash_temporary_task('2016-12-08 23:43:12', '2016-12-08 23:41:12'))
+	  temporary = Temporary.new(hash_temporary_task(DateTime.now, DateTime.now - 1))
 	  assert_not temporary.save
 	end
 
