@@ -33,7 +33,7 @@ class ListsController < ApplicationController
   end
 
   def destroy
-  	session[:list].delete @list.id
+    session[:list].delete @list.id if !session[:list].nil? #el if es por si se quiere borrar la lista-0(seed)
   	@list.destroy
 
   	redirect_to list_path
