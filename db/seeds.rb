@@ -26,8 +26,8 @@ List.create! [
 Task.create! [
 { type: 'Simple', description: 'Tengo que terminar estoooooo', list_id: 1, priority_id: 1  },
 { type: 'Simple', description: 'Llegar vivo a fin de año', list_id: 1, priority_id: 2  },
-{ type: 'Temporary', description: 'No se me ocurre que hacer', list_id: 1, beginning: '2016-12-09 1:28:12', ending: '2017-12-08 23:41:12', priority_id: 2  },
-{ type: 'Temporary', description: 'Descripcion', list_id: 1, beginning: '2016-12-09 1:28:12', ending: '2016-12-09 1:29:00', priority_id: 3 },
+{ type: 'Temporary', description: 'No se me ocurre que hacer', list_id: 1, beginning: DateTime.now, ending: DateTime.now + 1, priority_id: 2  },
+{ type: 'Temporary', description: 'Descripcion', list_id: 1, beginning: '2016-12-09 1:28:12', ending: DateTime.now + 1.minutes, priority_id: 3 },
 { type: 'Long', description: 'Comprar pan', list_id: 1, priority_id: 3  },
 { type: 'Long', description: 'Estudiar para el final', list_id: 1, priority_id: 1  },
 ]

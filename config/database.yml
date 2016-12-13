@@ -16,7 +16,7 @@ default: &default
   username: root
   password:
   host: localhost
-  #socket: /opt/lampp/var/mysql/mysql.sock ubicacion del socket
+  #socket: /opt/lampp/var/mysql/mysql.sock
 
 development:
   <<: *default
